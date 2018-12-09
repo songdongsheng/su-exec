@@ -1,0 +1,5 @@
+*               text eol=lf
+
+su-exec         -text
+su-exec-shared  -text
+su-exec-static  -text

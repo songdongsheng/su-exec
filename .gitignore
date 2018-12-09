@@ -1,0 +1,9 @@
+.*
+*~
+
+*.out
+*.so
+
+su-exec
+su-exec-shared
+su-exec-static
