@@ -1,5 +1,7 @@
-*               text eol=lf
+*                       text eol=lf
 
-su-exec         -text
-su-exec-shared  -text
-su-exec-static  -text
+su-exec                 -text
+su-exec-glibc-shared    -text
+su-exec-glibc-static    -text
+su-exec-musl-shared     -text
+su-exec-musl-static     -text
