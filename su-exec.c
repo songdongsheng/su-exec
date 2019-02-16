@@ -3,7 +3,7 @@
  *
  *  indent -linux -cs -nut -i 4 -l 120 su-exec.c
  *  clang-format -style=file -i su-exec.c
- *  cc -O2 -std=gnu99 -Wall -Wextra -pedantic -o su-exec su-exec.c
+ *  cc -Os -std=gnu99 -Wall -Wextra -pedantic -o su-exec su-exec.c
  *
  *  http://man7.org/linux/man-pages/dir_all_alphabetic.html
  */
@@ -24,12 +24,12 @@ int main(int argc, char *argv[])
     char *end;
 
     if (argc < 3) {
-        printf("Usage: su-exec user-spec command [args]\n");
-        printf("   eg: su-exec tianon bash\n");
-        printf("       su-exec nobody:root bash -c 'whoami && id'\n");
-        printf("       su-exec 1000:1 id\n");
-        printf("\n");
-        printf("su-exec license: Apache License, Version 2.0\n");
+        fprintf(stderr, "Usage: su-exec user-spec command [args]\n");
+        fprintf(stderr, "   eg: su-exec tianon bash\n");
+        fprintf(stderr, "       su-exec nobody:root bash -c 'whoami && id'\n");
+        fprintf(stderr, "       su-exec 1000:1 id\n");
+        fprintf(stderr, "\n");
+        fprintf(stderr, "su-exec license: Apache License, Version 2.0\n");
         exit(1);
     }
 
@@ -41,8 +41,7 @@ int main(int argc, char *argv[])
     }
 
     if (user[0] == '\0') {
-        printf("invalid user-spec, user part needed\n");
-        exit(1);
+        errx(1, "invalid user-spec, user part needed");
     }
 
     /* get passwd entry */
@@ -55,8 +54,7 @@ int main(int argc, char *argv[])
         }
     }
     if (pw == NULL) {
-        printf("invalid user-spec, user '%s' not found\n", user);
-        exit(1);
+        errx(1, "invalid user-spec, user '%s' not found", user);
     }
 
     uid_t uid = pw->pw_uid;
@@ -81,8 +79,7 @@ int main(int argc, char *argv[])
         if (gr != NULL)
             gid = gr->gr_gid;
         else {
-            printf("invalid user-spec, group '%s' not found\n", group);
-            exit(1);
+            errx(1, "invalid user-spec, group '%s' not found", group);
         }
     }
 
