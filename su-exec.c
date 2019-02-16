@@ -76,8 +76,6 @@ int main(int argc, char *argv[])
             gid_t ngid = strtol(group, &end, 10);
             if (*end == '\0') {
                 gr = getgrgid(ngid);
-                if (gr == NULL)
-                    gid = ngid;
             }
         }
         if (gr != NULL)
