@@ -42,8 +42,8 @@ it will **use root permission silently** if invalid user-spec given !
 ### Summary
 
 + The easiest way is to keep using the static musl version: su-exec-musl-static (38 KiB).
-+ If you use musl distribution, e.g. Alpine Linux, use shared musl version: su-exec-musl-shared (10 KiB)
-+ If you use glibc distribution, e.g. CentOS/Debian/Ubuntu/RHEL Linux, use shared glibc version: su-exec-glibc-shared (7 KiB)
++ If you use musl distribution, e.g. Alpine Linux, use shared musl version: su-exec-musl-shared (10 KiB).
++ If you use glibc distribution, e.g. CentOS/Debian/Ubuntu/RHEL Linux, use shared glibc version: su-exec-glibc-shared (7 KiB).
 
 ### Linux distribution and version support matrix
 

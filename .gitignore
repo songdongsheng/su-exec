@@ -5,5 +5,5 @@
 *.so
 
 su-exec
-su-exec-shared
-su-exec-static
+su-exec-*shared*
+su-exec-*static*
