@@ -1,4 +1,4 @@
-CFLAGS ?= -Os -Wall -Wextra -pedantic
+CFLAGS ?= -Os -std=gnu99 -Wall -Wextra -pedantic
 LDFLAGS ?=
 
 PROG := su-exec
@@ -12,7 +12,7 @@ $(PROG)-shared: $(SRCS)
 
 $(PROG)-static: $(SRCS)
 	$(CC) $(CFLAGS) -s -o $@ $^ $(LDFLAGS) -static
-	/bin/cp $(PROG)-static $(PROG)
+	# /bin/cp $(PROG)-static $(PROG)
 
 clean:
 	rm -f $(PROG) $(PROG)-shared $(PROG)-static

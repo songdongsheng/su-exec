@@ -1,0 +1,25 @@
+all: su-exec-musl-shared \
+	su-exec-musl-static \
+	su-exec-glibc-shared \
+	su-exec-glibc-static \
+	su-exec-glibc-shared-arm64 \
+	su-exec-glibc-static-arm64 \
+	su-exec-glibc-shared-riscv64 \
+	su-exec-glibc-static-riscv64 \
+	su-exec-glibc-shared-s390x \
+	su-exec-glibc-static-s390x
+
+su-exec-musl-shared su-exec-musl-static: su-exec.c vendor/docker-build-linux-amd64-musl.sh
+	vendor/docker-build-linux-amd64-musl.sh
+
+su-exec-glibc-shared su-exec-glibc-static: su-exec.c vendor/docker-build-linux-amd64-glibc.sh
+	vendor/docker-build-linux-amd64-glibc.sh
+
+su-exec-glibc-shared-arm64 su-exec-glibc-static-arm64: su-exec.c vendor/cross-build-linux-aarch64-glibc.sh
+	vendor/cross-build-linux-aarch64-glibc.sh
+
+su-exec-glibc-shared-riscv64 su-exec-glibc-static-riscv64: su-exec.c vendor/cross-build-linux-riscv64-glibc.sh
+	vendor/cross-build-linux-riscv64-glibc.sh
+
+su-exec-glibc-shared-s390x su-exec-glibc-static-s390x: su-exec.c vendor/cross-build-linux-s390x-glibc.sh
+	vendor/cross-build-linux-s390x-glibc.sh
