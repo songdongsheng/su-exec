@@ -14,7 +14,7 @@ chmod +x "$TMP_SCRIPT"
 cat > "$TMP_SCRIPT" << EOF
 #!/bin/sh
 
-apk update
+apk update && apk upgrade
 apk add gcc musl-dev
 
 cd /opt/
