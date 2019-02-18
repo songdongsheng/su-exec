@@ -19,7 +19,7 @@ apk add gcc musl-dev
 
 cd /opt/
 
-gcc -std=gnu99 -Os -Wall -Wextra -pedantic -o su-exec-musl-static su-exec.c -static
+gcc -std=gnu99 -Os -Wall -Wextra -pedantic -s -o su-exec-musl-static su-exec.c -static
 gcc -std=gnu99 -Os -Wall -Wextra -pedantic -s -o su-exec-musl-shared su-exec.c
 
 du -ks su-exec-musl-*
