@@ -25,8 +25,5 @@ gcc -std=gnu99 -Os -Wall -Wextra -pedantic -s -o su-exec-musl-shared su-exec.c
 du -ks su-exec-musl-*
 EOF
 
-echo docker run --rm -it -e 'LC_ALL=en_US.UTF-8' -e 'TZ=Asia/Shanghai' \
-    -v ${GIT_ROOT}:/opt alpine:3.2 /opt/vendor/`basename "${TMP_SCRIPT}"`
-
 docker run --rm -it -e 'LC_ALL=en_US.UTF-8' -e 'TZ=Asia/Shanghai' \
     -v ${GIT_ROOT}:/opt alpine:3.2 /opt/vendor/`basename "${TMP_SCRIPT}"`

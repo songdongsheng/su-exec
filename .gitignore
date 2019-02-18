@@ -1,6 +1,9 @@
 .*
 *~
 
+tmp.*
+sha256sum*
+
 *.out
 *.so
 
