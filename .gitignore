@@ -4,6 +4,8 @@
 tmp.*
 sha256sum*
 
+*.asc
+*.gpg
 *.out
 *.so
 

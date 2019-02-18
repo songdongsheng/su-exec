@@ -47,7 +47,7 @@ it will **use root permission silently** if invalid user-spec given !
 
 ### Linux distribution and version support matrix
 
-| Linux distribution | su-exec-glibc-shared (7 KiB)| su-exec-glibc-static (746 KiB) | su-exec-musl-shared (10 KiB) | su-exec-musl-static (38 KiB) |
+| Linux distribution | su-exec-glibc-shared (7 KiB)| su-exec-glibc-static (659 KiB) | su-exec-musl-shared (10 KiB) | su-exec-musl-static (38 KiB) |
 | ------------------ | -------------------- | -------------------- | ------------------- | ------------------- |
 | alpine:3.2         | XX                   | XX                   | OK                  | OK                  |
 | alpine:3.3         | XX                   | XX                   | OK                  | OK                  |
@@ -76,13 +76,13 @@ it will **use root permission silently** if invalid user-spec given !
 ### Binary file size
 
 ``` shell
-# touch -d "1970-01-01 00:00:00" su-exec-*
+# touch -d "1970-01-01 00:00:00" su-exec-{glibc,musl}-{shared,static}
 
-# ls -la su-exec-*
--rwxr-xr-x 1 dongsheng dongsheng   6912 Jan  1  1970 su-exec-glibc-shared
--rwxr-xr-x 1 dongsheng dongsheng 763616 Jan  1  1970 su-exec-glibc-static
+# ls -l su-exec-{glibc,musl}-{shared,static}
+-rwxr-xr-x 1 dongsheng dongsheng   7008 Jan  1  1970 su-exec-glibc-shared
+-rwxr-xr-x 1 dongsheng dongsheng 673880 Jan  1  1970 su-exec-glibc-static
 -rwxr-xr-x 1 dongsheng dongsheng   9880 Jan  1  1970 su-exec-musl-shared
--rwxr-xr-x 1 dongsheng dongsheng  38648 Jan  1  1970 su-exec-musl-static
+-rwxr-xr-x 1 dongsheng dongsheng  38328 Jan  1  1970 su-exec-musl-static
 ```
 
 ### Binary file signature
@@ -94,39 +94,41 @@ Primary key fingerprint: 3DA8 ECBB 5757 2D64 9F3C  0811 0401 AA20 46D3 97FF
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA512
 
-SHA256 (su-exec-glibc-shared) = 3f365c3d162ac2b8d343b8674c674bb5dc31a4eb968647910a25edb177638de9
-SHA256 (su-exec-glibc-static) = 5cf255f38092c3f7ba3b89f4840825c9f07ae778cb27ec83ba2d66a4c04b0b12
-SHA256 (su-exec-musl-shared) = ed6e097a0122d4027238c6927f634b5ac13691c3116ed693cfb7b982b41a48e6
-SHA256 (su-exec-musl-static) = 79dd71246b7a6aa1867df1ac0ccde9b9771995fa2bd86e74a0e110244512e67f
+SHA256 (su-exec-glibc-shared) = 0c1db1bfb7fbe5aa0b8ffb6e659a6a0d59a975811ebf405549bd7014e2593b21
+SHA256 (su-exec-glibc-static) = 1e3b00833d5ef00758561a7120156c95ba7e3f4d570ac6279cd9b9a41a6898e0
+SHA256 (su-exec-musl-shared) = 91940f8abfe758574dc5db6754e686210ad6154e78d8e367447dbf60c4613f42
+SHA256 (su-exec-musl-static) = 958c060156cea98caeab5d6c63e5aecc870ab0aa93b7b72712f33ab398c605eb
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAEBCgAdFiEEQHPpkzVy/CUZFVoZ0laJWdHapWYFAlxoKXgACgkQ0laJWdHa
-pWa82gf/QzjTzcToMr7U2UNxt3C8C9m0DEar4Y53XuqWyxUF2lNfNwDxMszHxeag
-Mm9eWephbyGayy+5si31t59nVE/KVNzse6RT4wBVKt0HakySvWTxR+0EtCER8gjD
-3htjWUtlCI7HORq4TyyMPYUpxf7Xu5CcZWcfK5N2Deeo8QuTFk7F4qMzJ+VHfNFr
-YAC8hMyHFtah1GWVrTNiWiiaCcrSwvWSQqVIXxKqW7BdbLUDQTF5AbFXtMeJO955
-HlZdO114KQ9uQVqcXJxmzbHgGemunPPoUSp3Lap9O8xi1azj8IHvsqfIHbBxfSBd
-ZscIeQm8yMGiInLsLZCOtYraB+E21Q==
-=X9yf
+iQEzBAEBCgAdFiEEQHPpkzVy/CUZFVoZ0laJWdHapWYFAlxqLr8ACgkQ0laJWdHa
+pWbdtwgAkqxTbOLbDAHjGwc21vPbaTXpctgVGCA1TCPOQJwJIvI2A1JvcBURbBCY
+l44v4g/C1iq5XAxNE1hfnyKZkmV4+cNNsE5E8rMLiN1sVSzqgaIrRsBHCrTWYylB
+sROOIbvSIPM80QoYwq1WHxs7ixO3e1xbWRMUNWbZb4zY1uvDvf1ctOW6P8OSwsH9
+6C9GdHCxUzyZ2X5oLldkceWnO7nQ2BAZZT3Syx4KY39SH20eXyv/Fn0tz/OrG+AY
+LPqsU9aCUQSfLYKxGhK/MaoYOxJnNAxkVEYi4zucT4NuWKkbGkuNKZykdHx/1+fi
+RmTv4PO/2TqrRQkvIaDUBiVNK9yXpw==
+=2RqZ
 -----END PGP SIGNATURE-----
 ```
 
 ### Download from GitHub
 
-+ [su-exec-1.2.tar.gz](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-1.2.tar.gz)
-+ [su-exec-1.2.tar.gz.asc](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-1.2.tar.gz.asc)
-+ [su-exec-glibc-shared](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-glibc-shared)
-+ [su-exec-glibc-static](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-glibc-static)
-+ [su-exec-musl-shared](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-musl-shared)
-+ [su-exec-musl-static](https://github.com/songdongsheng/su-exec/releases/download/1.2/su-exec-musl-static)
++ [su-exec-1.3.tar.gz](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-1.3.tar.gz)
++ [su-exec-1.3.tar.gz.asc](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-1.3.tar.gz.asc)
++ [su-exec-glibc-shared](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-glibc-shared)
++ [su-exec-glibc-static](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-glibc-static)
++ [su-exec-musl-shared](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-musl-shared)
++ [su-exec-musl-static](https://github.com/songdongsheng/su-exec/releases/download/1.3/su-exec-musl-static)
 
 ### Download from IPFS
 
 ```shell
-ipfs get -o su-exec-glibc-shared QmXfKbr1qDvvoEVd3mksRrbnVQsawMPxNq22GQNTDCBzTa
-ipfs get -o su-exec-glibc-static QmcAkDw6iEg3ktXWkYWiHj8tJqnGaFWBSA8dgPTkj2uDnX
-ipfs get -o su-exec-musl-shared  QmdEvCUAUnnaTD4ffwDuanS43FPZZgoCF55DtBgpuoqFQR
-ipfs get -o su-exec-musl-static  QmbB7MKHgsx2ZPSmnJJAiu4qDB19v5TtZPhYcfVZydG8Mk
+ipfs get -o su-exec-glibc-shared QmbZg6fdbZzDyb4GgLBUD2qrHyYuhHL1qyxG1Dc2WgTydK
+ipfs get -o su-exec-glibc-static QmNifPZSx4sVErXLjVwRhvC5TuqguaJbQLv4cBMU2epNTW
+ipfs get -o su-exec-musl-shared  QmaycfnnaFr5GXP7xabQYmfqWfbo6faGYu3kKjrWXyhTnx
+ipfs get -o su-exec-musl-static  QmXqdbCyW7w4arHKCW1hGmrJUL6hy8Lw4PKaH5Crq9ta6Y
+
+chmod +x su-exec-{glibc,musl}-{shared,static}
 ```
 
 ### Download from IPFS gateway
@@ -134,17 +136,21 @@ ipfs get -o su-exec-musl-static  QmbB7MKHgsx2ZPSmnJJAiu4qDB19v5TtZPhYcfVZydG8Mk
 #### cloudflare-ipfs.com
 
 ```shell
-curl -o su-exec-glibc-shared https://cloudflare-ipfs.com/ipfs/QmXfKbr1qDvvoEVd3mksRrbnVQsawMPxNq22GQNTDCBzTa
-curl -o su-exec-glibc-static https://cloudflare-ipfs.com/ipfs/QmcAkDw6iEg3ktXWkYWiHj8tJqnGaFWBSA8dgPTkj2uDnX
-curl -o su-exec-musl-shared  https://cloudflare-ipfs.com/ipfs/QmdEvCUAUnnaTD4ffwDuanS43FPZZgoCF55DtBgpuoqFQR
-curl -o su-exec-musl-static  https://cloudflare-ipfs.com/ipfs/QmbB7MKHgsx2ZPSmnJJAiu4qDB19v5TtZPhYcfVZydG8Mk
+curl -o su-exec-glibc-shared https://cloudflare-ipfs.com/ipfs/QmbZg6fdbZzDyb4GgLBUD2qrHyYuhHL1qyxG1Dc2WgTydK
+curl -o su-exec-glibc-static https://cloudflare-ipfs.com/ipfs/QmNifPZSx4sVErXLjVwRhvC5TuqguaJbQLv4cBMU2epNTW
+curl -o su-exec-musl-shared  https://cloudflare-ipfs.com/ipfs/QmaycfnnaFr5GXP7xabQYmfqWfbo6faGYu3kKjrWXyhTnx
+curl -o su-exec-musl-static  https://cloudflare-ipfs.com/ipfs/QmXqdbCyW7w4arHKCW1hGmrJUL6hy8Lw4PKaH5Crq9ta6Y
+
+chmod +x su-exec-{glibc,musl}-{shared,static}
 ```
 
 #### ipfs.io
 
 ```shell
-curl -o su-exec-glibc-shared https://ipfs.io/ipfs/QmXfKbr1qDvvoEVd3mksRrbnVQsawMPxNq22GQNTDCBzTa
-curl -o su-exec-glibc-static https://ipfs.io/ipfs/QmcAkDw6iEg3ktXWkYWiHj8tJqnGaFWBSA8dgPTkj2uDnX
-curl -o su-exec-musl-shared  https://ipfs.io/ipfs/QmdEvCUAUnnaTD4ffwDuanS43FPZZgoCF55DtBgpuoqFQR
-curl -o su-exec-musl-static  https://ipfs.io/ipfs/QmbB7MKHgsx2ZPSmnJJAiu4qDB19v5TtZPhYcfVZydG8Mk
+curl -o su-exec-glibc-shared https://ipfs.io/ipfs/QmbZg6fdbZzDyb4GgLBUD2qrHyYuhHL1qyxG1Dc2WgTydK
+curl -o su-exec-glibc-static https://ipfs.io/ipfs/QmNifPZSx4sVErXLjVwRhvC5TuqguaJbQLv4cBMU2epNTW
+curl -o su-exec-musl-shared  https://ipfs.io/ipfs/QmaycfnnaFr5GXP7xabQYmfqWfbo6faGYu3kKjrWXyhTnx
+curl -o su-exec-musl-static  https://ipfs.io/ipfs/QmXqdbCyW7w4arHKCW1hGmrJUL6hy8Lw4PKaH5Crq9ta6Y
+
+chmod +x su-exec-{glibc,musl}-{shared,static}
 ```
