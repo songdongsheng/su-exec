@@ -43,7 +43,7 @@ it will **use root permission silently** if invalid user-spec given !
 
 + The easiest way is to keep using the static musl version: su-exec-musl-static (38 KiB).
 + If you use musl distribution, e.g. Alpine Linux, use shared musl version: su-exec-musl-shared (10 KiB).
-+ If you use glibc distribution, e.g. CentOS/Debian/Ubuntu/RHEL Linux, use shared glibc version: su-exec-glibc-shared (7 KiB).
++ If you use glibc distribution, e.g. SUSE/Debian/Ubuntu/RHEL/CentOS Linux, use shared glibc version: su-exec-glibc-shared (7 KiB).
 
 ### Linux distribution and version support matrix
 
@@ -57,19 +57,27 @@ it will **use root permission silently** if invalid user-spec given !
 | alpine:3.7         | XX                   | XX                   | OK                  | OK                  |
 | alpine:3.8         | XX                   | XX                   | OK                  | OK                  |
 | alpine:3.9         | XX                   | XX                   | OK                  | OK                  |
+| alpine:3.10        | XX                   | XX                   | OK                  | OK                  |
+| alpine:3.11        | XX                   | XX                   | OK                  | OK                  |
 | centos:5           | OK                   | XX                   | XX                  | OK                  |
 | centos:6           | OK                   | OK                   | XX                  | OK                  |
 | centos:7           | OK                   | OK                   | XX                  | OK                  |
 | debian:6           | OK                   | OK                   | XX                  | OK                  |
-| debian:7-slim      | OK                   | OK                   | XX                  | OK                  |
-| debian:8-slim      | OK                   | OK                   | XX                  | OK                  |
-| debian:9-slim      | OK                   | OK                   | XX                  | OK                  |
-| debian:buster-slim | OK                   | OK                   | XX                  | OK                  |
+| debian:7           | OK                   | OK                   | XX                  | OK                  |
+| debian:8           | OK                   | OK                   | XX                  | OK                  |
+| debian:9           | OK                   | OK                   | XX                  | OK                  |
+| debian:10          | OK                   | OK                   | XX                  | OK                  |
 | ubuntu:10.04       | OK                   | OK                   | XX                  | OK                  |
 | ubuntu:12.04       | OK                   | OK                   | XX                  | OK                  |
 | ubuntu:14.04       | OK                   | OK                   | XX                  | OK                  |
 | ubuntu:16.04       | OK                   | OK                   | XX                  | OK                  |
 | ubuntu:18.04       | OK                   | OK                   | XX                  | OK                  |
+| ubuntu:20.04       | OK                   | OK                   | XX                  | OK                  |
+| rhel6              | OK                   | OK                   | XX                  | OK                  |
+| rhel7 or ubi7      | OK                   | OK                   | XX                  | OK                  |
+| RHEL 8 (ubi8)      | OK                   | OK                   | XX                  | OK                  |
+| sles12sp5          | OK                   | OK                   | XX                  | OK                  |
+| sle15:15.1         | OK                   | OK                   | XX                  | OK                  |
 
 ## Download
 

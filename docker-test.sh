@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while read IMG USR REST; do
+while read IMG REST; do
   # echo docker pull $IMG
   # docker pull $IMG >/dev/null
   for PROG in su-exec-glibc-shared  su-exec-glibc-static  su-exec-musl-shared  su-exec-musl-static; do
@@ -21,17 +21,27 @@ alpine:3.6
 alpine:3.7
 alpine:3.8
 alpine:3.9
+alpine:3.10
+alpine:3.11
 centos:5
 centos:6
 centos:7
+centos:8
 debian:6
-debian:7-slim
-debian:8-slim
-debian:9-slim
-debian:buster-slim
+debian:7
+debian:8
+debian:9
+debian:10
 ubuntu:10.04
 ubuntu:12.04
 ubuntu:14.04
 ubuntu:16.04
 ubuntu:18.04
+ubuntu:20.04
+registry.access.redhat.com/rhel6
+registry.access.redhat.com/rhel7
+registry.access.redhat.com/ubi7/ubi
+registry.access.redhat.com/ubi8/ubi
+registry.suse.com/suse/sles12sp5
+registry.suse.com/suse/sle15:15.1
 EOF
