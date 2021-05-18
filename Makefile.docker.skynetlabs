@@ -1,0 +1,8 @@
+all: su-exec-musl-static \
+    su-exec-glibc-static-arm64
+
+su-exec-musl-static: su-exec.c vendor/docker-build-linux-amd64-musl.skynetlabs.sh
+	vendor/docker-build-linux-amd64-musl.skynetlabs.sh
+
+su-exec-glibc-static-arm64: su-exec.c vendor/cross-build-linux-aarch64-glibc.skynetlabs.sh
+	vendor/cross-build-linux-aarch64-glibc.skynetlabs.sh
